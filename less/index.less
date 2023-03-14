@@ -1,0 +1,682 @@
+//out: ../css/
+body {
+    font-family: Microsoft YaHei, Arial, Helvetica, sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+//公共样式
+.container a {
+    text-decoration: none;
+
+    //模块的基本样式
+    .article_art {
+        // background-color: #337ab7;
+        position: relative;
+        padding: 20px 10px;
+        text-align: center;
+        border-radius: 4px;
+        color: #fff;
+        margin-bottom: 10px;
+        transition: all .1s ease;
+        overflow: hidden;
+
+
+        .light {
+            cursor: pointer;
+            position: absolute;
+            left: -100%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transform: translateX(50%) skewX(-45deg);
+            background-image: -webkit-linear-gradient(0deg, hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, .5), hsla(0, 0%, 100%, 0));
+            opacity: 0;
+        }
+
+        &:hover {
+            animation: forward 0.5s forwards;
+
+
+            .light {
+                opacity: 1;
+                animation: light 0.5s forwards;
+            }
+        }
+
+        @keyframes forward {
+            100% {
+                box-shadow: 0 20px 40px -20px #8b8b8b;
+                transform: translate3d(0, -5%, 5px);
+            }
+        }
+
+        @keyframes light {
+            100% {
+                transform: translateX(200%);
+            }
+        }
+    }
+}
+
+.title {
+    padding: 50px 0;
+    text-align: center;
+    font-weight: 500;
+    font-family: Segoe UI Light, Microsoft YaHei, Arial, Helvetica, sans-serif;
+
+    .txt {
+        font-size: 30px;
+    }
+
+    & p:last-child {
+        margin: 20px 0 40px 0;
+        font-size: 16px;
+        color: #919191;
+    }
+}
+
+//按钮
+.i-more {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #fff;
+    box-shadow: 6px 6px 0 #fff;
+    width: 200px;
+    cursor: pointer;
+
+    a {
+        font-size: 14px;
+        background-color: #e7e7e7;
+    }
+}
+
+//去除navbar的默认背景色
+.navbar-fixed-top {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.navbar-default {
+    .navbar-nav {
+        li {
+            a {
+                float: right;
+                font-weight: 400;
+                font-size: 16px;
+                margin-right: 20px;
+                color: hsla(0, 0%, 100%, .65);
+                padding: 32px 0;
+
+                &:hover {
+                    color: #f2b535;
+                }
+            }
+        }
+
+        .active {
+            color: #f2b535;
+        }
+
+        img {
+            transform: scale(0.5);
+        }
+    }
+
+    .navbar-toggle {
+        border-color: transparent;
+
+        .icon-bar {
+            background-color: #fff;
+            height: 3px;
+        }
+    }
+}
+
+//控制banner图片的高度适配
+.carousel {
+
+    /* 视口大小
+        <700 250px max-width
+        <992 400px max-width
+        >992 500px min-width*/
+    img {
+        height: 100% !important;
+    }
+
+    @media (min-width: 992px) {
+        .item {
+            height: 500px;
+
+            .hire_name {
+                font-size: 40px;
+            }
+
+            .hire_title {
+                font-size: 40px;
+            }
+
+            .info_name {
+                font-size: 60px;
+            }
+
+            .info_desc {
+                font-size: 30px;
+            }
+        }
+
+    }
+
+    @media (max-width: 992px) {
+        .item {
+            height: 400px;
+
+            .hire_name {
+                font-size: 40px;
+            }
+
+            .hire_title {
+                font-size: 40px;
+            }
+
+            .info_name {
+                font-size: 60px;
+            }
+
+            .info_desc {
+                font-size: 30px;
+            }
+        }
+
+    }
+
+    @media (max-width: 700px) {
+        .item {
+            height: 250px;
+
+            .hire_name {
+                font-size: 20px;
+            }
+
+            .hire_title {
+                font-size: 20px;
+            }
+
+            .info_name {
+                font-size: 40px;
+            }
+
+            .info_desc {
+                font-size: 10px;
+            }
+        }
+    }
+
+    .carousel-indicators {
+        li {
+            width: 50px;
+            height: 5px;
+            border-radius: 2px;
+        }
+    }
+
+    .carousel-inner {
+        .item {
+            .carousel-caption {
+                height: 70%;
+
+                .hire_name {
+                    color: hsla(0, 0%, 100%, .8);
+                    animation: hire_name 1s forwards linear;
+                }
+
+                .hire_title {
+                    color: hsla(0, 0%, 100%, .8);
+                    margin-top: 10%;
+                    animation: hire_title 1s forwards linear;
+                }
+
+                .info_name {
+                    animation: info_name 0.8s forwards linear;
+                }
+
+                .info_desc {
+                    margin-top: 10%;
+                    animation: info_title 0.8s forwards linear;
+                }
+
+                @keyframes hire_name {
+                    from {
+                        transform: translateX(100%);
+                    }
+
+                    to {
+                        transform: translateX(30%);
+                    }
+                }
+
+                @keyframes hire_title {
+                    from {
+                        transform: translateX(-100%);
+                    }
+
+                    to {
+                        transform: translateX(-35%);
+                    }
+                }
+
+                @keyframes info_name {
+                    from {
+                        transform: translateY(-500%);
+                    }
+
+                    to {
+                        position: 0 0;
+                    }
+                }
+
+                @keyframes info_title {
+                    from {
+                        transform: translateY(500%);
+                    }
+
+                    to {
+                        position: 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//项目单元
+.project {
+
+    .container a {
+        text-decoration: none;
+
+        // //模块的基本样式，修改到公共样式位置
+
+        //单独控制模块背景颜色
+        .art1 {
+            background-color: #70c3ff !important;
+        }
+
+        .art2 {
+            background-color: #fd6a7f !important;
+        }
+
+        .art3 {
+            background-color: #7f8ea0 !important;
+        }
+
+        .art4 {
+            background-color: #89d04f !important;
+        }
+
+        .img {
+            height: 60px;
+            overflow: hidden;
+            display: inline-block;
+        }
+    }
+}
+
+//作品单元
+.work {
+    .container a {
+        text-decoration: none;
+
+        .box {
+            border: 1px solid rgba(202, 202, 202, 0.5);
+            border-radius: 2%;
+            margin-bottom: 10px;
+
+            // .image {
+            //     height: 160px;
+            //     overflow: hidden;
+
+            //     img {
+            //         height: 160px;
+            //     }
+            // }
+
+            .i-desc {
+                margin: 10px;
+                color: #313131 !important;
+                font-size: 14px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                text-align: left;
+                font-family: '微软雅黑';
+            }
+
+            &:hover {
+                img {
+                    transform: scale(1.5);
+                    transition: 1s;
+                }
+
+                animation: forward 0.5s forwards;
+            }
+
+            @keyframes forward {
+                100% {
+                    box-shadow: 0 20px 40px -20px #8b8b8b;
+                    transform: translate3d(0, -5%, 5px);
+                }
+            }
+
+            @media (min-width: 992px) {
+                .image {
+                    height: 170px;
+                    overflow: hidden;
+
+                    img {
+                        height: 170px;
+                    }
+                }
+            }
+
+            @media (max-width:992px) {
+                .image {
+                    height: 220px;
+                    overflow: hidden;
+
+                    img {
+                        height: 220px;
+                    }
+                }
+            }
+
+            @media (max-width:700px) {
+                .image {
+                    height: 290px;
+                    overflow: hidden;
+
+                    img {
+                        height: 290px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//博客单元
+.blog {
+    .box {
+        padding-right: 10px;
+
+        .panelOne {
+            display: block;
+            border: 1px solid rgba(202, 202, 202, 0.5);
+            border-radius: 2%;
+
+            .panelOne-title {
+                h2 {
+                    text-align: left;
+                    position: relative;
+                    font-size: 16px;
+                    color: #616161;
+                    border-bottom: 1px solid #f5f5f5;
+                    padding: 15px 0;
+                    margin: 0 10px;
+                    z-index: 1;
+
+                    a {
+                        font-size: 30px;
+                        text-decoration: none;
+                        position: absolute;
+                        right: 0;
+                        background-color: transparent;
+                        color: #337ab7;
+                        line-height: 10px;
+
+                        &:hover {
+                            color: #f2b535;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .panelOne-content {
+            padding: 0;
+            margin: 15px 0 0 15px;
+
+            li {
+                margin-bottom: 15px;
+
+                a {
+                    font-size: 16px;
+                    font-weight: 400;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    word-wrap: normal;
+                    color: #616161;
+                    padding-right: 80px;
+
+                    display: block;
+                    text-align: left;
+
+                    h4 {
+                        display: inline-block;
+
+                        &:hover {
+                            color: #f2b535;
+                        }
+                    }
+
+                    span {
+                        position: absolute;
+                        left: 80%;
+                    }
+                }
+            }
+
+        }
+
+        .blog-category {
+            display: inline-block;
+            padding: 15px 0;
+            text-align: left;
+            width: 48%;
+            line-height: 100%;
+
+            a {
+                display: block;
+                padding-right: 30px;
+
+                .image {
+                    display: inline-block;
+                    transform: translateY(-10px);
+
+                    img {
+                        width: 60px;
+                    }
+                }
+
+                .category-name {
+                    display: inline-block;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    color: #272727;
+                    font-size: 14px;
+                    text-align: left;
+
+                    h2 {
+                        font-size: 20px;
+                        font-weight: 600;
+                        margin: 2px;
+
+                        &:hover {
+                            color: #f2b535;
+                        }
+                    }
+
+                    .desc {
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        color: #c1c1c1;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+//超级明星单元
+.star {
+    .box {
+        height: 270px;
+        background-color: #f5f8fa;
+        border: 1px solid #e4ecf3;
+        border-radius: 4px;
+        text-align: center;
+        transition: all .3s ease;
+
+        .image {
+            height: 210px;
+            padding: 20px;
+
+            img {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                overflow: hidden;
+                display: inline-block;
+            }
+
+            p {
+                color: #272727;
+                font-size: 20px;
+            }
+
+        }
+
+        .desc {
+            padding-top: 15px;
+            height: 58px;
+            background-color: #fff;
+            font-size: 16px;
+            color: #969696;
+        }
+
+        &:hover {
+            animation: forward 0.5s forwards;
+        }
+
+        @keyframes forward {
+            100% {
+                box-shadow: 0 20px 40px -20px #8b8b8b;
+                transform: translate3d(0, -5%, 5px);
+            }
+        }
+    }
+}
+
+// 底部
+.footer {
+    background-color: rgb(61, 61, 61);
+
+    .footer-info {
+        height: 300px;
+        margin-top: 50px;
+
+        .logo-wrapper {
+            font-size: 14px;
+            color: hsla(0, 0%, 100%, .4);
+
+            .logo {
+                height: 40px;
+                margin: 20px 0;
+
+                img {
+                    display: block;
+                    height: 40px;
+                }
+            }
+
+            .slogan {
+                font-size: 16px;
+            }
+
+            .copyright {
+                margin-top: 30px;
+            }
+
+            a {
+                color: hsla(0, 0%, 100%, .4);
+
+                &:hover {
+                    text-decoration: underline solid hsla(0, 0%, 100%, .4);
+
+                }
+            }
+        }
+    }
+
+    .footer-links {
+        height: 300px;
+        margin-top: 50px;
+        font-size: 14px;
+        color: hsla(0, 0%, 100%, .4);
+
+        h4 {
+            color: rgb(187, 171, 171);
+        }
+
+        .link-item {
+            display: block;
+            color: hsla(0, 0%, 100%, .4);
+            margin-bottom: 5px;
+
+            &:hover {
+                color: rgb(240, 204, 0);
+                text-decoration: underline solid rgb(240, 204, 0);
+
+            }
+        }
+    }
+
+    .footer-qr {
+        height: 300px;
+        margin-top: 80px;
+        font-size: 12px;
+        color: hsla(0, 0%, 100%, .4);
+
+        .qr-item {
+            text-align: center;
+            padding: 0;
+
+            img {
+                width: 120px;
+
+                &:hover {
+                    transform: scale(2);
+                }
+            }
+
+            p {
+                margin: 10px 0;
+            }
+        }
+    }
+
+    @media (max-width:992px) {
+        .footer-links {
+            display: none;
+        }
+    }
+}
